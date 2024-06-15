@@ -26,7 +26,7 @@ function startCountdown() {
 
   showToast("⏰ Final countdown! ⏰");
   
-  const timer = setInterval(() => {
+   timer = setInterval(() => {
     remainingTime -= 1;
     timeDiv.innerHTML = remainingTime ;
     
@@ -56,13 +56,13 @@ function showToast(message) {
   toastMessage.textContent = message;
   toastDiv.classList.add("show"); // To show the toast card, we simply add the "show" class to the toast card, and it will become visible, handled in CSS.
   
-  setTimeout(() => hideToast, 3000); // hide toast after 3 sec
+  const timeoutId = setTimeout(() => hideToast(), 3000); // hide toast after 3 sec
 
   // BONUS: ITERATION 4: TOAST CLOSE BUTTON
 
   // Your code goes here ...
   closeToast.addEventListener("click", () => {
-    clearTimeout();
+    clearTimeout(timeoutId);
     hideToast();
 
 
